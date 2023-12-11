@@ -1,0 +1,19 @@
+Python CPU Benchmark by Alex Dedyura (Windows, macOS(Darwin), Linux)
+CPU: AMD Ryzen 7 6800HS with Radeon Graphics
+Arch: AMD64
+OS: Windows
+
+Benchmarking: 
+
+Time: 25.701s
+Time: 25.375s
+Time: 25.867s
+Time: 25.452s
+Time: 26.118s
+Time: 25.51s
+Time: 25.575s
+
+.Time: 25.26s
+Time: 25.207s
+Time: 25.175s
+Average (from 10 repeats): 25.524s
