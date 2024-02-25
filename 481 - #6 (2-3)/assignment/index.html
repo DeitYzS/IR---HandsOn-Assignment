@@ -12,28 +12,27 @@
     
     <ul id="result_list">
         {% for result in response_object.results %}
-            <li>{{ result.text }}</li>
+            <li>{{ result.text }}...</li>
         {% endfor %}
     </ul>
 </body>
 <script>
     fetch('http://localhost:5000/search_manual?query=camt')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            
-            // Update the HTML content with the fetched data
-            document.getElementById('total_hits').innerText = data.total_hit;
-            document.getElementById('elapsed_time').innerText = data.elapse + ' seconds';
-            
-            // Loop through the results and update the list
-            const resultList = document.getElementById('result_list');
-            resultList.innerHTML = '';  // Clear existing list items
-            data.results.forEach(result => {
-                const listItem = document.createElement('li');
-                listItem.innerText = result.text;
-                resultList.appendChild(listItem);
-            });
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        document.getElementById('total_hits').innerText = data.total_hit;
+        document.getElementById('elapsed_time').innerText = data.elapse + ' seconds';
+        
+        const resultList = document.getElementById('result_list');
+        resultList.innerHTML = '';
+        
+        data.results.forEach(result => {
+            const listItem = document.createElement('li');
+            listItem.innerText = result.text.slice(0, 150) + '...';
+            resultList.appendChild(listItem);
         });
+    });
 </script>
 </html>
